@@ -29,18 +29,26 @@ public class MyActivity1Circle extends AppCompatActivity {
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String radiusText = txtRadius.getText().toString();
-                if(radiusText.equals("")) {
-                    Toast.makeText(MyActivity1Circle.this, "Please enter the radius!", Toast.LENGTH_SHORT).show();
-                    return;
+                String radiusText;
+                try {
+                    radiusText = txtRadius.getText().toString();
+                    if(radiusText.equals("")) {
+                        Toast.makeText(MyActivity1Circle.this, "Please enter the radius!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    double radius = Integer.parseInt(radiusText);
+                    circle.setRadius(radius);
+                    double area = circle.getArea();
+                    double circumference = circle.getCircumference();
+                    txtArea.setText(String.format("%.2f",area));
+                    txtCircumference.setText(String.format("%.2f", circumference));
+                    Toast.makeText(MyActivity1Circle.this, "Area and Circumference of the Circle has been computed!", Toast.LENGTH_SHORT).show();
+
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MyActivity1Circle.this, "Input should be a number! Please try again.", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(MyActivity1Circle.this, "Invalid input! Please try again.", Toast.LENGTH_SHORT).show();
                 }
-                double radius = Integer.parseInt(radiusText);
-                circle.setRadius(radius);
-                double area = circle.getArea();
-                double circumference = circle.getCircumference();
-                txtArea.setText(String.format("%.2f",area));
-                txtCircumference.setText(String.format("%.2f", circumference));
-                Toast.makeText(MyActivity1Circle.this, "Area and Circumference of the Circle has been computed!", Toast.LENGTH_SHORT).show();
             }
         });
     }
