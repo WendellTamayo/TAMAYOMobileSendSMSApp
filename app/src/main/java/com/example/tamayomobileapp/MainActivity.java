@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnActivity2:
                 Toast.makeText(MainActivity.this, "Activity 2 Button is clicked!", Toast.LENGTH_SHORT).show();
-                intent = new Intent(this,MyActivity1Circle.class);
+                intent = new Intent(this,MainActivity2_Menu.class);
                 startActivity(intent);
                 break;
             case R.id.btnActivity3:
