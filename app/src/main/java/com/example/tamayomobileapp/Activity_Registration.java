@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Activity_Registration extends AppCompatActivity {
@@ -35,12 +36,14 @@ public class Activity_Registration extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailEditText);
         clearButton = findViewById(R.id.clearButton);
         submitButton = findViewById(R.id.submitButton);
+        RadioGroup radioGroup = findViewById(R.id.genderRadioGroup);
 
         clearButton.setOnClickListener(v -> {
             firstNameEditText.setText("");
             lastNameEditText.setText("");
-            femaleRadioButton.setSelected(false);
-            maleRadioButton.setSelected(false);
+//            femaleRadioButton.setSelected(false);
+//            maleRadioButton.setSelected(false);
+            radioGroup.clearCheck();
             birthdateEditText.setText("");
             phoneNumberEditText.setText("");
             emailEditText.setText("");

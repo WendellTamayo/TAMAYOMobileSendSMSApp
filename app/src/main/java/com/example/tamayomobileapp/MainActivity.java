@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnHelloWorld, btnExercise1, btnActivity1, btnActivity2, btnActivity3;
+    Button btnHelloWorld, btnExercise1, btnActivity1, btnActivity2, btnActivity3, btnSendSMS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnActivity1 = (Button) findViewById(R.id.btnActivity1);
         btnActivity2 = (Button) findViewById(R.id.btnActivity2);
         btnActivity3 = (Button) findViewById(R.id.btnActivity3);
+        btnSendSMS = (Button) findViewById(R.id.btnSendSMS);
 
         btnHelloWorld.setOnClickListener(this);
         btnExercise1.setOnClickListener(this);
         btnActivity1.setOnClickListener(this);
         btnActivity2.setOnClickListener(this);
         btnActivity3.setOnClickListener(this);
+        btnSendSMS.setOnClickListener(this);
     }
 
 //    @Override
@@ -58,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnActivity3:
                 Toast.makeText(MainActivity.this, "Activity 3 Button is clicked!", Toast.LENGTH_SHORT).show();
                 intent = new Intent(this,MyActivity1Circle.class);
+                startActivity(intent);
+                break;
+            case R.id.btnSendSMS:
+                Toast.makeText(MainActivity.this, "Send SMS is clicked!", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, Acitivity_SendSMS.class);
                 startActivity(intent);
                 break;
             default:
